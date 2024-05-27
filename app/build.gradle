@@ -16,10 +16,10 @@ repositories {
 }
 
 dependencies {
-    // Use TestNG framework, also requires calling test.useTestNG() below
-    testImplementation libs.testng
-
-    // This dependency is used by the application.
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.21.0'
+    testImplementation group: 'org.testng', name: 'testng', version: '7.10.2'
+    implementation group: 'io.qameta.allure', name: 'allure-testng', version: '2.27.0'
+    implementation group: 'com.typesafe', name: 'config', version: '1.4.3'
     implementation libs.guava
 }
 
@@ -35,7 +35,6 @@ application {
     mainClass = 'org.example.App'
 }
 
-tasks.named('test') {
-    // Use TestNG for unit tests.
+test {
     useTestNG()
 }
